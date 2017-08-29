@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Poll Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script>
+        $(document).ready(function(){
+            new Chart(document.getElementById("chart"),{{{chart}}});
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <canvas id="chart" width="500" height="300"></canvas>
+    </div>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ var localStrategy = require("passport-local").Strategy;
 module.exports = function(app) {
     
     app.route('/').get(function(req,res) {
-        res.sendFile(process.cwd() +'/index.html');
+        res.sendFile(process.cwd() +'/public/welcome.html');
     });
     
     app.route('/register').get(function(req, res) {
@@ -73,6 +73,15 @@ module.exports = function(app) {
     app.route('/login').post(passport.authenticate('local', {successRedirect: '/vote', failureRedirect:'/login', failureFlash: true, successFlash: 'You are Authenticated'}),
     function(req, res){
         res.redirect('/vote');
+    });
+    
+    app.route('/vote').get(loggedIn, function(req, res, next){
+            res.redirect('/welcome/'+req.user.name); 
+       
+    });
+    
+    app.route('/welcome/:user').get(loggedIn, function(req,res){
+       res.sendFile(process.cwd()+'/public/welcome.html'); 
     });
     
     app.route('/createPoll').get(function(req, res) {
@@ -173,4 +182,12 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return(color);
+}
+
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
 }

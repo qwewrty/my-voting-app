@@ -96,7 +96,7 @@ module.exports = function(app) {
         var votes = [];
         options.forEach(function(){
             votes.push(0);
-        })
+        });
         
         if(username && question) {
             var newPoll = new Poll({
@@ -131,6 +131,19 @@ module.exports = function(app) {
             if(err) throw err;
             res.redirect('/results/'+poll._id);
         });
+    });
+    
+    app.route('/api/getPolls/:user').get(loggedIn, function(req, res) {
+        if(req.user.username == req.params.user){
+            Poll.getPollsByUser(req.params.user, function(err, data){
+                if(err)
+                    console.log(err);
+                res.send(JSON.stringify(data));
+            });
+        }
+        else{
+            res.send("Nice try loser!!!");
+        }
     });
     
     app.route('/results/:poll_id').get(function(req, res) {

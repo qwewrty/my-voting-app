@@ -26,6 +26,11 @@ module.exports.getPollById = function(id, callback){
     Poll.findOne(query, callback);
 }
 
+module.exports.getPollsByUser = function(user, callback){
+    var query = {username: user};
+    Poll.find(query, callback);
+}
+
 module.exports.updateVotes = function(id, option, callback){
     
     Poll.getPollById(id, function(err, poll)

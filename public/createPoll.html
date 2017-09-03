@@ -1,19 +1,82 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title>Register</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"/>
+       <title>Welcome!</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" media="screen">
     </head>
     <body>
-        <form action = "" method="post" >
-            <input type="textarea" name="question" placeholder="question"/>
-            <input type="text" name="username" placeholder="username"/>
-            <input type="text" name="op1" placeholder="option 1"/>
-            <input type="text" name="op2" placeholder="option 2"/>
-            <input type="text" name="op3" placeholder="option 3"/>
-            <!--<span id="op"></span>-->
-            <!--<a href="#" id="add-op" onclick="addOption()"/>-->
-            <input type="submit" value="Submit"/>
-        </form>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class=navbar-header><a class="navbar-brand" href="#">My Voting App</a></div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav nav-links">
+                
+                <li>
+                  <a href="#">My Polls</a>
+                </li>
+              </ul>
+    
+              <ul class="nav navbar-nav navbar-right nav-links" style = "margin-right: 5px;">
+                <li><a href="#" >Logout</a></li>
+              </ul>
+    
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-header"></div>
+            <form class="form-horizontal" action="" method="post">
+              <fieldset>
+                <legend>New Poll</legend>
+                <div class="form-group">
+                  <label for="textArea" class="col-lg-2 control-label">Question</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" name="question" id="textArea"></textarea>
+                  </div>
+                </div>
+                
+                <input type="hidden" name="username" value="abc"/>
+                
+                <div class="form-group">
+                  <label for="op1" class="col-lg-2 control-label">Options:</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="op1" name="op1" placeholder="Option 1">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-lg-2 control-label"></label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="op1" name="op2" placeholder="Option 2">
+                  </div>
+                </div>
+                
+                <input type="hidden" name="op3" value="option 3" />
+                
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </fieldset>
+        </div>
     </body>
+    <style type="text/css">
+        .jumbotron{
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        .nav-links{
+            border-style: solid;
+            border-top-style: none;
+            border-bottom-style: none;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-color: #178acc;
+        }
+        
+        form{
+            background: #d7d7d7;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </html>

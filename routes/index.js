@@ -133,17 +133,17 @@ module.exports = function(app) {
         });
     });
     
-    app.route('/api/getPolls/:user').get(loggedIn, function(req, res) {
-        if(req.user.username == req.params.user){
-            Poll.getPollsByUser(req.params.user, function(err, data){
-                if(err)
-                    console.log(err);
-                res.send(JSON.stringify(data));
-            });
-        }
-        else{
-            res.send("Nice try loser!!!");
-        }
+    app.route('/api/getPolls').get(loggedIn, function(req, res) {
+        
+        Poll.getPollsByUser(req.user.username, function(err, data){
+            if(err)
+                console.log(err);
+            res.send(JSON.stringify(data));
+        });
+    });
+    
+    app.route('/mypolls').get(loggedIn, function(req, res){
+       res.sendFile(process.cwd()+'/public/myPolls.html'); 
     });
     
     app.route('/results/:poll_id').get(function(req, res) {

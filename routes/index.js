@@ -125,7 +125,7 @@ module.exports = function(app) {
         Poll.getPollByQuestion(username,question, function(err, poll){
             if(err) throw err;
             //console.log(poll);
-            res.render('poll',{layout: false, question: poll.question, options: poll.options, poll_id: poll._id});
+            res.render('poll',{ question: poll.question, options: poll.options, poll_id: poll._id});
         });
     });
     
@@ -135,7 +135,7 @@ module.exports = function(app) {
         Poll.getPollById(id, function(err, poll){
             if(err) throw err;
             //console.log(poll);
-            res.render('poll',{layout: false, question: poll.question, options: poll.options, poll_id: poll._id});
+            res.render('poll',{ question: poll.question, options: poll.options, poll_id: poll._id});
         });
     });
     
@@ -183,7 +183,7 @@ module.exports = function(app) {
                   }
                 }
             }
-            res.render('poll_results', {layout: false, options: poll.options, votes: poll.votes,
+            res.render('poll_results', { question: poll.question,
             chart: JSON.stringify(chart_json),
             helpers:{
                 getVotes: function(index){return poll.votes[index];}    

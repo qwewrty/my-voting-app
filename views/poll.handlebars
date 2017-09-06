@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Poll</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/public/scripts/votes.controller.js"></script>
-</head>
-<body>
-    <div class="container">
-        <form id="form" action="/api/vote/{{poll_id}}" method="post">
-            <h1>{{question}}</h1>
-            {{#each options}}
-              <input type="radio" class="radio radio-inline" name="option" value="{{this}}"> {{this}}<br>
-            {{/each}}
-            <button id="vote" class="btn btn-primary">Vote!</button>
-        </form>
-    </div>
-</body>
-</html>
+
+<form class="form-horizontal" action="/api/vote/{{poll_id}}" method="post">
+              <fieldset>
+                <legend><h1>{{question}}</h1></legend>
+                {{#each options}}
+                <div class="form-group">
+                  <input type="radio" class="radio radio-inline" name="option" value="{{this}}"> {{this}}<br>
+                </div>
+                {{/each}}
+                <button type="submit" id="vote" class="btn btn-primary">Vote!</button>
+              </fieldset>
+            </form>

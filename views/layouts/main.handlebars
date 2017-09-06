@@ -1,0 +1,49 @@
+<html>
+    <head>
+       <title>Welcome!</title>
+       <link rel="stylesheet" href="/public/style/cerulean.min.css" media="screen">
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class=navbar-header><a class="navbar-brand" href="#">My Voting App</a></div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav nav-links">
+                
+                <li>
+                  <a href="/myPolls">My Polls</a>
+                </li>
+              </ul>
+    
+              <ul class="nav navbar-nav navbar-right nav-links" style = "margin-right: 5px;">
+                <li><a href="#" >Logout</a></li>
+              </ul>
+    
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-header"></div>
+            {{{body}}}
+        </div>
+    </body>
+    <style type="text/css">
+        .jumbotron{
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        .nav-links{
+            border-style: solid;
+            border-top-style: none;
+            border-bottom-style: none;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-color: #178acc;
+        }
+        
+        button a {
+            color: #ffffff;
+        }
+        button a:hover{
+            color: #ffffff;
+        }
+    </style>
+</html>

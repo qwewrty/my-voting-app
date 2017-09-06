@@ -67,6 +67,9 @@ module.exports = function(app) {
     });
     
     app.route('/login').get(function(req, res){
+        if(req.user){
+            res.redirect('/vote');
+        }
         res.sendFile(process.cwd()+'/public/login.html')
     });
     
@@ -120,6 +123,16 @@ module.exports = function(app) {
         var question = decodeURIComponent(req.params.question);
         
         Poll.getPollByQuestion(username,question, function(err, poll){
+            if(err) throw err;
+            //console.log(poll);
+            res.render('poll',{layout: false, question: poll.question, options: poll.options, poll_id: poll._id});
+        });
+    });
+    
+    app.route('/polls/:id').get(function(req, res) {
+        var id = req.params.id;
+        
+        Poll.getPollById(id, function(err, poll){
             if(err) throw err;
             //console.log(poll);
             res.render('poll',{layout: false, question: poll.question, options: poll.options, poll_id: poll._id});

@@ -27,8 +27,8 @@
                     <h1>Hi There!!!</h1>
                     <p>What do you want to do?</p>
                     <p>
-                        <div id="newPoll" class="btn btn-primary">Create Poll</div>
-                        <div id="viewPolls" class="btn btn-primary">View My Polls</div>
+                        <button id="newPoll" class="btn btn-primary"><a href="/createPoll">Create Poll</a></button>
+                        <button id="viewPolls" class="btn btn-primary"><a href="/myPolls">View My Polls</a></button>
                     </p>
                 </div>
             </div>
@@ -46,6 +46,13 @@
             border-right-width: 1px;
             border-left-width: 1px;
             border-color: #178acc;
+        }
+        
+        button a {
+            color: #ffffff;
+        }
+        button a:hover{
+            color: #ffffff;
         }
     </style>
 </html>

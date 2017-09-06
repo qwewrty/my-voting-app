@@ -1,14 +1,76 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"/>
+       <title>Welcome!</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" media="screen">
     </head>
     <body>
-        <form action="" method="post">
-            <input type="text" name="username" placeholder="username"/>
-            <input type="text" name="password" placeholder="password"/>
-            <input type="submit" value="Login"/>
-        </form>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class=navbar-header><a class="navbar-brand" href="#">My Voting App</a></div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav nav-links">
+                
+                <li>
+                  <a href="/myPolls">My Polls</a>
+                </li>
+              </ul>
+    
+              <ul class="nav navbar-nav navbar-right nav-links" style = "margin-right: 5px;">
+                <li><a href="#" >Logout</a></li>
+              </ul>
+    
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-header"></div>
+            <form id="login" class="form-horizontal" action="" method="post">
+              <fieldset>
+                <legend>Login</legend>
+                
+               
+                <div class="form-group">
+                  <label for="op1" class="col-lg-2 control-label">Username:</label>
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-9">
+                    <input type="Password" class="form-control" name="password" placeholder="********">
+                  </div>
+                </div>
+                <div class="col-lg-2"></div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                  
+              </fieldset>
+        </div>
     </body>
+    <style type="text/css">
+        .jumbotron{
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        .nav-links{
+            border-style: solid;
+            border-top-style: none;
+            border-bottom-style: none;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-color: #178acc;
+        }
+        
+        form{
+            background: #d7d7d7;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        #login{
+            margin-left: 20%;
+            width: 500px;
+        }
+    </style>
 </html>

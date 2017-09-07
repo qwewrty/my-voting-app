@@ -87,15 +87,23 @@ module.exports = function(app) {
        res.sendFile(process.cwd()+'/public/welcome.html'); 
     });
     
-    app.route('/createPoll').get(function(req, res) {
+    app.route('/createPoll').get(loggedIn, function(req, res) {
         res.sendFile(process.cwd()+'/public/createPoll.html');
     });
     
-    app.route('/createPoll').post(function(req, res) {
+    app.route('/createPoll').post(loggedIn, function(req, res) {
         
         var question = req.body.question;
-        var username = req.body.username;
-        var options = [ req.body.op1, req.body.op2, req.body.op3];
+        var username = req.user.username;
+        var count=1;
+        var options=[];
+        var option="op1"
+        while(req.body[option]){
+            options.push(req.body[option]);
+            count++;
+            option="op"+count;
+        }
+        
         var votes = [];
         options.forEach(function(){
             votes.push(0);

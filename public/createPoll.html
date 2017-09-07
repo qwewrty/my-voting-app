@@ -4,6 +4,8 @@
     <head>
        <title>Welcome!</title>
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" media="screen">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/public/scripts/createPolls.controller.js"></script>
     </head>
     <body>
         <div class="navbar navbar-default navbar-fixed-top">
@@ -30,28 +32,32 @@
                 <div class="form-group">
                   <label for="textArea" class="col-lg-2 control-label">Question</label>
                   <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" name="question" id="textArea"></textarea>
+                    <textarea class="form-control" rows="3" name="question" id="textArea" required></textarea>
                   </div>
                 </div>
                 
-                <input type="hidden" name="username" value="abc"/>
                 
-                <div class="form-group">
-                  <label for="op1" class="col-lg-2 control-label">Options:</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="op1" name="op1" placeholder="Option 1">
+                <div id="options">
+                  <div class="form-group">
+                    <label for="op1" class="col-lg-2 control-label">Options:</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="op1" name="op1" placeholder="Option 1" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label"></label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control"  name="op2" placeholder="Option 2" required>
+                    </div>
                   </div>
                 </div>
-                
-                <div class="form-group">
-                  <label class="col-lg-2 control-label"></label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="op1" name="op2" placeholder="Option 2">
+                  <div class="form-group">
+                    <div class="col-lg-2 control-label"></div>
+                    <button type="button" id="addOption" class="btn btn-primary">Add Option</button>
                   </div>
-                </div>
                 
-                <input type="hidden" name="op3" value="option 3" />
-                
+                    
                     <button type="reset" class="btn btn-default">Cancel</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>

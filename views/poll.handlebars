@@ -4,9 +4,11 @@
                 <legend><h1>{{question}}</h1></legend>
                 {{#each options}}
                 <div class="form-group">
+                  <div class="col-lg-1"></div>
                   <input type="radio" class="radio radio-inline" name="option" value="{{this}}"> {{this}}<br>
                 </div>
                 {{/each}}
+                <div class="col-lg-1 "></div>
                 <button type="submit" id="vote" class="btn btn-primary">Vote!</button>
               </fieldset>
             </form>

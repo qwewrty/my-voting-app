@@ -183,6 +183,8 @@ module.exports = function(app) {
                   ]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                   legend: { display: true },
                   title: {
                     display: true,

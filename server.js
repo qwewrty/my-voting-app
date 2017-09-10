@@ -6,6 +6,7 @@ var flash = require("connect-flash");
 var passport = require("passport");
 var session = require("express-session");
 var exphbs  = require('express-handlebars');
+var cookieParser = require('cookie-parser');
 
 var routes = require("./routes/index.js");
 
@@ -47,6 +48,7 @@ app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');

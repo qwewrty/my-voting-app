@@ -75,11 +75,20 @@ module.exports = function(app) {
     
     app.route('/login').post(passport.authenticate('local', {successRedirect: '/vote', failureRedirect:'/login', failureFlash: true, successFlash: 'You are Authenticated'}),
     function(req, res){
+        res.cookie( 'name', req.user.name, {maxAge : 60000});
+        console.log(req.user.name);
         res.redirect('/vote');
     });
     
+    app.route('/logout').get(loggedIn, function(req, res) {
+       req.logout(); 
+       res.clearCookie('name');
+       res.redirect('/');
+    });
+    
     app.route('/vote').get(loggedIn, function(req, res, next){
-            res.redirect('/welcome/'+req.user.name); 
+            res.cookie( 'name', req.user.name, {maxAge : 60000});
+            res.redirect('/welcome/'+req.user.username); 
        
     });
     

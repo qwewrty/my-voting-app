@@ -18,8 +18,9 @@ module.exports = function(app) {
         var name = req.body.name;
         var username = req.body.username;
         var password = req.body.password;
+        var rePassword = req.body.repassword;
         
-        if(name && username && password) {
+        if(name && username && password && rePassword==password) {
             var newUser = new User({
                 name: name,
                 username: username,
@@ -31,7 +32,7 @@ module.exports = function(app) {
                 console.log(user);
             });
             
-            res.redirect('/');
+            res.redirect('/login');
         }
     });
     
@@ -169,6 +170,19 @@ module.exports = function(app) {
             if(err)
                 console.log(err);
             res.send(JSON.stringify(data));
+        });
+    });
+    
+    app.route('/api/isValidUsername').get(function(req, res) {
+        var username=req.query.username;
+        //console.log(username);
+        User.getUserByUsername(username,function(err, data){
+            if(err)
+                console.log(err);
+            if(data)
+                res.send("false");
+            else
+                res.send("true");
         });
     });
     

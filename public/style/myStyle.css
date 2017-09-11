@@ -1,0 +1,34 @@
+.jumbotron{
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        .nav-links{
+            border-style: solid;
+            border-top-style: none;
+            border-bottom-style: none;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-color: #178acc;
+        }
+        
+        form{
+            background: #d7d7d7;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        #login{
+            margin-left: 20%;
+            width: 500px;
+        }
+        
+        .error{
+            color: red;
+        }
+        
+        button a {
+            color: #ffffff;
+        }
+        button a:hover{
+            color: #ffffff;
+        }

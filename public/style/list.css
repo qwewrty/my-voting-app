@@ -1,0 +1,31 @@
+#list li{
+  list-style-type: none;
+  height: 55px;
+  padding: 5px;
+  border: solid;
+  border-radius: 5px;
+  border-color: #68717f;
+  border-width: 2px;  
+  margin-top: 10px;
+}
+
+#list li a{
+  color: #1ace23;
+  font-weight: bold;
+}
+
+#list li:hover {
+  background: #e6e9ef;
+  border-style: outset;
+}
+
+#list li a:hover{
+  text-decoration: none;
+  color: #4da6ff;
+  font-weight: bold;
+}
+
+#res {
+    margin-right: 10px;
+    float: right;   
+}

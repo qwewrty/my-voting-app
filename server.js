@@ -10,7 +10,7 @@ var cookieParser = require('cookie-parser');
 
 var routes = require("./routes/index.js");
 
-var db = 'mongodb://localhost:27017/voting';
+var db = 'mongodb://user1:user12345@ds131914.mlab.com:31914/voting';
 var port = process.env.PORT || 8000;
 
 var app = express();

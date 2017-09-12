@@ -29,7 +29,7 @@ module.exports = function(app) {
             
             User.createUser(newUser, function(err, user) {
                 if(err) throw err;
-                console.log(user);
+                //console.log(user);
             });
             
             res.redirect('/login');
@@ -77,7 +77,6 @@ module.exports = function(app) {
     app.route('/login').post(passport.authenticate('local', {successRedirect: '/vote', failureRedirect:'/login', failureFlash: true, successFlash: 'You are Authenticated'}),
     function(req, res){
         res.cookie( 'name', req.user.name, {maxAge : 60000});
-        console.log(req.user.name);
         res.redirect('/vote');
     });
     

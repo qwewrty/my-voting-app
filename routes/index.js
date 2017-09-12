@@ -74,9 +74,9 @@ module.exports = function(app) {
         res.sendFile(process.cwd()+'/public/login.html')
     });
     
-    app.route('/login').post(passport.authenticate('local', {successRedirect: '/vote', failureRedirect:'/login', failureFlash: true, successFlash: 'You are Authenticated'}),
+    app.route('/login').post(passport.authenticate('local', {successRedirect: '/vote', failureRedirect:'/login?t=1', failureFlash: true, successFlash: 'You are Authenticated'}),
     function(req, res){
-        res.cookie( 'name', req.user.name, {maxAge : 60000});
+        
         res.redirect('/vote');
     });
     
